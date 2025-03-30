@@ -18,22 +18,15 @@
         }
         .login-box {
             background: #000000;
-            padding: 0 40px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
             text-align: center;
             max-width: 500px;
-            height: fit-content;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-
-            img {
-                width: 300px;
-                padding: 10px;
-                margin: 20px 0;
-            }
         }
         .login-box h2 {
             margin-bottom: 30px;
@@ -59,7 +52,6 @@
             border-radius: 5px;
             outline: none;
             font-size: 1.6rem;
-            text-align: left;
         }
         .error-text {
             color: red;
@@ -68,27 +60,26 @@
             margin: 10px 0;
         }
         .login-button {
-    width: 100%;
-    padding: 20px;
-    background: #fe8c00;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 2rem;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: all 0.3s ease-in-out;
-}
-
-.login-button:hover {
-    filter: brightness(1.5); /* Makes the button slightly brighter on hover */
-}
-
-
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to right, #f83600, #fe8c00);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .login-button:hover {
+            filter: brightness(1.5);
+        }
+        .login-box img {
+            width: 300px;
+            padding: 10px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -100,7 +91,7 @@ background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, F
         </div>
         <p class="error-text" id="error"></p>
         <button class="login-button" onclick="checkLogin()">Login</button>
-        <img src="/images/login_page_logo.svg" alt="KapeBai Logo">
+        <img src="../images/login_page_logo.svg" alt="KapeBai Logo">
     </div>
 
     <script>
@@ -109,12 +100,12 @@ background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, F
         function checkLogin() {
             let passwordInput = document.getElementById("password").value;
             let errorMsg = document.getElementById("error");
-            
+
             if (passwordInput === "") {
                 errorMsg.textContent = "Please enter a password before logging in.";
                 errorMsg.style.display = "block";
             } else if (passwordInput === correctPassword) {
-              window.location.href = "https://jonymarbravo.github.io/Self_Service_Kiosk/admin/admin_dashboard.html";
+                window.location.href = "admin_dashboard.html?cache_bust=" + new Date().getTime();
             } else {
                 errorMsg.textContent = "Wrong password, try again.";
                 errorMsg.style.display = "block";
