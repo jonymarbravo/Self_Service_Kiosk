@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/admin/admin_dashboard.css">
+
+<!-- Background Image Styling -->
+<style>
+            body {
+                background: url(/images/admin_dashboard_BG.jpg) no-repeat center center fixed;
+                background-size: cover;
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .admin_main_container {
+    display: flex;
+    padding: 0;
+  }
+  .admin_orders_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #000000b4;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    padding: 10px 80px 15px 80px;
+    max-width: 793px;
+    height: 100vh;
+    width: 100%;
+    margin-left: 20px;
+
+    h1 {
+        color: #ffffff;
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+        margin: 10px 0 15px 0;
+    }
+  }
+  .admin_box_container {
+    border: 1px solid #ffffff;
+    padding: 30px;
+    width: 100%;
+    height: 945px;
+    background-color: #000000;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+  }
+  .admin_box_container::-webkit-scrollbar {
+    width: 5px;
+  }
+  .admin_box_container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .admin_box_container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+  }
+  .customers_order {
+    font-family: 'Libre Franklin', sans-serif;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: #000000;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 20px;
+
+    p {
+      color: #000000;
+      font-weight: 800;
+    }
+}
+.order_header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 800;
+
+    span {
+      font-size: 1.4rem;
+    }
+    button {
+      background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #960404;
+    transition: 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+      color: #ff0000;
+    }
+}
+.status_message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    border-radius: 10px;
+    display: none;
+}
+
+.customers_order.finished {
+    backdrop-filter: blur(5px);
+    background: rgb(134, 134, 134);
+}
+
+.customers_order.finished .status_message {
+    display: block;
+}
+
+
+
+
+  /*Right Side Container*/
+  .admin_design_container {
+    max-width: 594px;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-left: 2px solid #000000;
+    margin-left: 515px;
+  } 
+  #logout_btn {
+        background: #421800;
+        color: #ffffff;
+        font-size: 1.6rem;
+        font-weight: 800;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: fixed;
+        right: 15px;
+        top: 15px;
+
+        i {
+      margin-right: 5px;
+    }
+  }
+  #logout_btn:hover {
+      background: #7c2e00;
+    }
+  .kiosk_design {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 200px 0 20px 0;
+
+    h1 {
+        color: #ffffff;
+        -webkit-text-stroke: 2px #000000;
+        border: 1px solid #000000;
+        background: #868282;
+        border-radius: 5px;
+        padding: 15px 20px;
+        font-weight: 800;
+        font-size: 46px;
+        margin: 10px 0;
+        width: 100%;
+        text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    }
+  }
+  .KAPEBAI_design {
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    background: #ffffff;
+    border: none;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+  .logout_option {
+    display: none;
+    text-align: center;
+    filter: none;
+    z-index: 10;
+    width: 600px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    h1 {
+      margin-bottom: 20px;
+    }
+    button {
+      background: #01cc34;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      width: 200px;
+      padding: 20px 40px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+  .blur body,
+.blur .admin_orders_container,
+.blur .admin_design_container {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+</style>
+
+</head>
+<body>
+
+    <div class="admin_main_container" id="admin_main_container">
+
+    <!--Left Side Container-->
+    <div class="admin_orders_container">
+
+        <h1>ORDER LIST TABLE</h1>
+        <div class="admin_box_container">
+
+          <div class="customers_order">
+            <div class="order_header">
+                <span>📜 PRIORITY NUMBER: 01</span>
+                <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+            </div>
+            <p>☕ 2x Cappuccino Coffee - ₱150.00 each</p>
+            <p>☕ 1x Americano Coffee - ₱140.00</p>
+            <p>🍔 1x Ham & Cheese Sandwich - ₱180.00</p>
+            <br>
+            <p>🏅 VIP/PWD Member: Yes</p>
+            <p>🆔 VIP/PWD ID Number: 12345</p>
+            <br>
+            <p>💰 Chosen Payment Option: Cashier</p>
+            <div class="status_message">FINISHED!</div>
+        </div>
+        <div class="customers_order">
+          <div class="order_header">
+              <span>📜 PRIORITY NUMBER: 02</span>
+              <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+          </div>
+          <p>🧃 2x Orange Juice - ₱130.00 each</p>
+          <p>🍔 1x Club Sandwich - ₱150.00</p>
+          <p>🍔 1x Egg and Salad Sandwich - ₱120.00</p>
+          <br>
+          <p>🏅 VIP/PWD Member: No</p>
+          <br>
+          <p>💰 Chosen Payment Option: PayPal</p>
+          <div class="status_message">FINISHED!</div>
+      </div>
+      <div class="customers_order">
+        <div class="order_header">
+            <span>📜 PRIORITY NUMBER: 03</span>
+            <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+        </div>
+        <p>🧃 4x Apple Juice - ₱150.00 each</p>
+        <p>☕ 1x Americano - ₱140.00</p>
+        <p>🍔 2x Chicken Sandwich - ₱170.00 each</p>
+        <p>🍔 2x BLT Sandwich - ₱150.00 each</p>
+        <br>
+        <p>🏅 VIP/PWD Member: Yes</p>
+        <p>🆔 VIP/PWD ID Number: 11223</p>
+        <br>
+        <p>💰 Chosen Payment Option: GCASH</p>
+        <div class="status_message">FINISHED!</div>
+    </div>
+    <div class="customers_order">
+      <div class="order_header">
+          <span>📜 PRIORITY NUMBER: 04</span>
+          <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+      </div>
+      <p>🧃 3x Strawberry Juice - ₱180.00 each</p>
+      <p>☕ 1x Orange Juice - ₱130.00</p>
+      <p>🍔 2x Chicken Sandwich - ₱170.00 each</p>
+      <p>🍔 1x Tuna Sandwich - ₱140.00</p>
+      <br>
+      <p>🏅 VIP/PWD Member: Yes</p>
+      <p>🆔 VIP/PWD ID Number: 67890</p>
+      <br>
+      <p>💰 Chosen Payment Option: Cedit Card</p>
+      <div class="status_message">FINISHED!</div>
+  </div>
+  <div class="customers_order">
+    <div class="order_header">
+        <span>📜 PRIORITY NUMBER: 05</span>
+        <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+    </div>
+    <p>🧃 4x Grape Juice - ₱180.00 each</p>
+    <p>☕ 1x Iced Coffee - ₱110.00</p>
+    <p>🍔 2x Chicken Sandwich - ₱170.00 each</p>
+    <p>🍔 2x Turkey & Swiss Sandwich - ₱150.00 each</p>
+    <br>
+    <p>🏅 VIP/PWD Member: No</p>
+    <br>
+    <p>💰 Chosen Payment Option: GCASH</p>
+    <div class="status_message">FINISHED!</div>
+</div>
+<div class="customers_order">
+  <div class="order_header">
+      <span>📜 PRIORITY NUMBER: 06</span>
+      <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+  </div>
+  <p>🧃 4x Grape Juice - ₱180.00 each</p>
+  <p>☕ 1x Iced Coffee - ₱110.00</p>
+  <p>🍔 2x Chicken Sandwich - ₱170.00 each</p>
+  <p>🍔 2x Turkey & Swiss Sandwich - ₱150.00 each</p>
+  <br>
+  <p>🏅 VIP/PWD Member: Yes</p>
+  <p>🆔 VIP/PWD ID Number: 44556</p>
+  <br>
+  <p>💰 Chosen Payment Option: Debit Card</p>
+  <div class="status_message">FINISHED!</div>
+</div> 
+<div class="customers_order" style="margin-bottom: 0;">
+  <div class="order_header">
+      <span>📜 PRIORITY NUMBER: 07</span>
+      <button class="finish_btn"><i class="fas fa-thumbs-up"></i></button>
+  </div>
+  <p>🧃 4x Grape Juice - ₱180.00 each</p>
+  <p>☕ 1x Iced Coffee - ₱110.00</p>
+  <p>🍔 2x Chicken Sandwich - ₱170.00 each</p>
+  <p>🍔 2x Turkey & Swiss Sandwich - ₱150.00 each</p>
+  <br>
+  <p>🏅 VIP/PWD Member: Yes</p>
+  <p>🆔 VIP/PWD ID Number: 78901</p>
+  <br>
+  <p>💰 Chosen Payment Option: Cashier</p>
+  <div class="status_message">FINISHED!</div>
+</div>
+        
+        </div>
+
+    </div>
+    
+
+    <!--Right Side Container-->
+    <div class="admin_design_container">
+
+        <button id="logout_btn">
+          <i class="fa-solid fa-right-from-bracket"></i>LOG OUT
+        </button>
+
+        <div class="kiosk_design">
+            <img src="/icons/admin_profile_icon.svg" alt="admin-profile">
+            <h1>KIOSK ADMIN</h1>
+        </div>
+
+        <div class="KAPEBAI_design">
+            <img src="/images/KapeBaiLogo.svg" alt="KAPEBAI Logo">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="logout_option">
+  <h1>Are you sure you want to <br> log out?</h1>
+  <button onclick="location.href='../admin/log_in.html'">YES</button>
+  <button style="background: #ca0000;">NO</button>
+</div>
+
+    <script>
+
+document.querySelectorAll(".customers_order").forEach((order) => {
+    const finishBtn = order.querySelector(".finish_btn");
+    const statusMessage = order.querySelector(".status_message");
+
+    finishBtn.addEventListener("click", () => {
+        if (!order.classList.contains("finished")) {
+            order.classList.add("finished");
+            finishBtn.innerHTML = '<i class="fas fa-times"></i>';
+            finishBtn.style.color = "#dc3545"; // Change to red when finished
+        } else {
+            order.classList.remove("finished");
+            finishBtn.innerHTML = '<i class="fas fa-thumbs-up"></i>';
+            finishBtn.style.color = "#960404"; // Back to like red when undone
+        }
+    });
+});
+
+document.getElementById('logout_btn').addEventListener('click', function(){
+    document.querySelector('.logout_option').style.display = 'block';
+    document.querySelector('.admin_main_container').classList.add("blur");
+    
+});
+
+document.querySelector('.logout_option button[style="background: #ca0000;"]').addEventListener('click', function(){
+    document.querySelector('.logout_option').style.display = 'none';
+    document.querySelector('.admin_main_container').classList.remove('blur');
+});
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Libre Franklin', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e2d;
+            color: white;
+        }
+        .login-box {
+            background: #000000;
+            padding: 0 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            max-width: 500px;
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 300px;
+                padding: 10px;
+                margin: 20px 0;
+            }
+        }
+        .login-box h2 {
+            margin-bottom: 30px;
+            font-size: 3rem;
+        }
+        .input-field {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 5px;
+            width: 95%;
+            padding: 15px;
+        }
+        .input-field i {
+            margin-left: 10px;
+            color: gray;
+            font-size: 2rem;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 0 20px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1.6rem;
+            text-align: left;
+        }
+        .error-text {
+            color: red;
+            display: none;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .login-button {
+    width: 100%;
+    padding: 20px;
+    background: #fe8c00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-button:hover {
+    filter: brightness(1.5); /* Makes the button slightly brighter on hover */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2><i class="fas fa-user-shield"></i> Admin Login</h2>
+        <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter Password">
+        </div>
+        <p class="error-text" id="error"></p>
+        <button class="login-button" onclick="checkLogin()">Login</button>
+        <img src="/images/login_page_logo.svg" alt="KapeBai Logo">
+    </div>
+
+    <script>
+        const correctPassword = "admin123";
+
+        function checkLogin() {
+            let passwordInput = document.getElementById("password").value;
+            let errorMsg = document.getElementById("error");
+            
+            if (passwordInput === "") {
+                errorMsg.textContent = "Please enter a password before logging in.";
+                errorMsg.style.display = "block";
+            } else if (passwordInput === correctPassword) {
+                window.location.href = "/admin/admin_dashboard.html";
+            } else {
+                errorMsg.textContent = "Wrong password, try again.";
+                errorMsg.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

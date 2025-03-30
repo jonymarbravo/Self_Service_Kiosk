@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Service Kiosk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Background Image Styling -->
+    <style>
+        body {
+            background: url(images/Page_background.jpg) no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Libre Franklin', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN CONTAINER (Put all UI design here) -->
+    <div class="main-container" id="main_container">
+
+    <!--Homepage Left Side Container Main Order Options-->
+            <div class="main_options">
+                <div class="priority_number_container">
+                    <h2 id="priority">01</h2>
+                </div>
+                <button id = "coffee">
+                    <img src="icons/beautiful_coffee.png" alt="Coffee Icon">
+                    <span>COFFEE</span>
+                </button>
+                <button id = "juice">
+                    <img src="icons/juice_icon.png" alt="Juice Icon">
+                    <span>JUICES</span>
+                </button>
+                <button id = "sandwiches">
+                    <img src="icons/sandwich_icon.png" alt="Sandwich Icon">
+                    <span>SANDWICHES</span>
+                </button>
+            </div>
+
+            <!--Homepage right side decoration-->
+            <div class="home_decoration_container" id="home_design">
+                <img src="icons/KapeBai.svg" alt="HOMEPAGE DESIGN">
+            </div>
+
+
+            <!--Display None or Display block Purposes Container-->
+            <!--Coffee Section-->
+            <div class="menu_option_container1" id="coffee_container" style="display: none;">
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Espresso', 150)">
+                            <img src="images/Espresso.png" alt="Espresso">
+                            <h2>Espresso Coffee</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Americano', 140)">
+                            <img src="images/Americano.jpg" alt="Americano">
+                            <h2>Americano Coffee</h2>
+                            <h3>Price: ₱140.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Cappucino', 150)">
+                            <img src="images/Cappucino.jpg" alt="Cappucino">
+                            <h2>Capuccino Coffee</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Latte', 150)">
+                            <img src="images/Latte Coffee.jpg" alt="Latte">
+                            <h2>Latte Coffee</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Macchiato', 160)">
+                            <img src="images/Macchiato Coffee.jpg" alt="Macchiato">
+                            <h2>Machiatto Coffee</h2>
+                            <h3>Price: ₱160.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Mocha', 130)">
+                            <img src="images/Mocha Coffee.jpg" alt="Mocha">
+                            <h2>Mocha Coffee</h2>
+                            <h3>Price: ₱130.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Flat White', 150)">
+                            <img src="images/Flat White Coffee.jpg" alt="Flat White">
+                            <h2>Flat White Coffee</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Cortado', 180)">
+                            <img src="images/Cortado Coffee.jpg" alt="Cortado">
+                            <h2>Cortado Coffee</h2>
+                            <h3>Price: ₱180.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Iced Coffee', 110)">
+                            <img src="images/Iced Coffee.jpg" alt="Iced Coffee">
+                            <h2>Iced Coffee</h2>
+                            <h3>Price: ₱110.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Irish', 220)">
+                            <img src="images/Irish Coffee.jpg" alt="Irish">
+                            <h2>Irish Coffee</h2>
+                            <h3>Price: ₱220.00</h3>
+                        </div>
+                    </div>
+
+            </div>
+
+            <!--Juice Section-->
+            <div class="menu_option_container2" id="juice_container" style="display: none;">
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Orange', 130)">
+                            <img src="images/Orange Juice.jpg" alt="Orange">
+                            <h2>Orange Juice</h2>
+                            <h3>Price: ₱130.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Apple Juice', 150)">
+                            <img src="images/Apple Juice.png" alt="Apple Juice">
+                            <h2>Apple Juice</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Lemonade', 150)">
+                            <img src="images/Lemonade.png" alt="Lemonade">
+                            <h2>Lemonade</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Mango', 150)">
+                            <img src="images/Mango Juice.jpg" alt="Mango">
+                            <h2>Mango Juice</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Strawberry', 160)">
+                            <img src="images/Strawberry Juice.jpg" alt="Strawberry">
+                            <h2>Strawberry Juice</h2>
+                            <h3>Price: ₱160.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Grapes', 180)">
+                            <img src="images/Grape Juice.png" alt="Grapes">
+                            <h2>Grape Juice</h2>
+                            <h3>Price: ₱180.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Watermelon', 150)">
+                            <img src="images/Watermelon Juice.jpg" alt="Watermelon">
+                            <h2>Watermelon Juice</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Pineapple', 150)">
+                            <img src="images/Pineapple Juice.jpg" alt="Pineapple">
+                            <h2>Pineapple Juice</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Carrot', 120)">
+                            <img src="images/Carrot Juice.png" alt="Carrot">
+                            <h2>Carrot Juice</h2>
+                            <h3>Price: ₱120.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Cranberry', 150)">
+                            <img src="images/Cranberry Juice.jpg" alt="Cranberry">
+                            <h2>Cranberry Juice</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+            </div>
+
+            <!--Sandwiches Section-->
+            <div class="menu_option_container3" id="sandwiches_container" style="display: none;">
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Ham/Cheese', 140)">
+                            <img src="images/Ham and Cheese.jpg" alt="Ham/Cheese">
+                            <h2>Ham & Cheese Sandwich</h2>
+                            <h3>Price: ₱140.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Club Sandwich', 150)">
+                            <img src="images/Club Sandwich.jpg" alt="Club Sandwich">
+                            <h2>Club Sandwich</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Tuna', 140)">
+                            <img src="images/Tuna Sandwich.jpg" alt="Tuna">
+                            <h2>Tuna Sandwich</h2>
+                            <h3>Price: ₱140.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Egg/Salad', 120)">
+                            <img src="images/Egg and Salad.jpg" alt="Egg/Salad">
+                            <h2>Egg Salad Sandwich</h2>
+                            <h3>Price: ₱120.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Chicken', 170)">
+                            <img src="images/Chicken Sandwich.jpg" alt="Chicken">
+                            <h2>Chicken Sandwich</h2>
+                            <h3>Price: ₱170.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Turkey/Swiss', 150)">
+                            <img src="images/Turkey and Swiss.jpg" alt="Turkey/Swiss">
+                            <h2>Turkey & Swiss Sandwich</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('BLT', 150)">
+                            <img src="images/BLT.jpg" alt="BLT">
+                            <h2>BLT Sandwich</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Grilled Cheese', 150)">
+                            <img src="images/Grilled Cheese.jpg" alt="Grilled Cheese">
+                            <h2>Grilled Cheese Sandwich</h2>
+                            <h3>Price: ₱150.00</h3>
+                        </div>
+                    </div>
+
+                    <div class="flavors_container">
+                        <div class="flavors" onclick="addToOrder('Caprese', 140)">
+                            <img src="images/Caprese Sandwich.jpg" alt="Caprese">
+                            <h2>Caprese Sandwich</h2>
+                            <h3>Price: ₱140.00</h3>
+                        </div>
+                        <div class="flavors" onclick="addToOrder('Veggie', 170)">
+                            <img src="images/Veggie Sandwich.jpg" alt="Veggie">
+                            <h2>Veggie Sandwich</h2>
+                            <h3>Price: ₱170.00</h3>
+                        </div>
+                    </div>
+
+            </div>
+
+
+            <!--Order List Container-->
+            <div class="order_lists_container" id="order_list" style="display: none;">
+
+                <div class="header_container" >
+                <h1>ORDER LIST</h1>
+                <div class="vip_section">
+                    <label><input type="checkbox" id="vip_checkbox"> Check the box if you're a VIP/PWD customer</label>
+                    <input type="text" id="vip_id" placeholder="Enter VIP/PWD ID" disabled>
+                    <button id="verify_vip">Verify Now</button>
+                    <p class="vip_message" id="vip_message"></p>
+                </div>
+                <div class="total_price_container">
+                    <h3>Total Price: <span id="total_price">₱0.00</span></h3>
+                </div>
+            </div>
+
+
+        <div id="order_display"></div>
+
+
+        <button class="buy_btn" onclick="validateOrder()">PURCHASE</button>
+
+            </div>
+
+        </div>
+
+
+        <!--Payment Options-->
+        <div class="popup" id="payment_popup">
+            <i id="cancel_icon" class="fa-solid fa-xmark"></i>
+            <h3>SELECT PAYMENT METHOD</h3>
+            <span>VIP/PWD customers, select 'Proceed to Cashier' for your discount.</span>
+            <label><input type="radio" name="payment" value="Cashier"> Proceed to Cashier</label><br>
+            <label><input type="radio" name="payment" value="GCash"> GCash</label><br>
+            <label><input type="radio" name="payment" value="PayPal"> PayPal</label><br>
+            <label><input type="radio" name="payment" value="Card"> Credit/Debit Card</label><br>
+            <button onclick="confirmPayment()">CONFIRM</button>
+        </div>
+
+
+        <!--Last Option Container-->
+        <div class="popup" id="repeat_order_popup">
+            <h3>Would you like to place an order again?</h3>
+            <button style="background-color: #1800f5;" onclick="repeatOrder(true)">Yes</button>
+            <button style="background-color: #fc0000;" onclick="repeatOrder(false)">No</button>
+        </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
