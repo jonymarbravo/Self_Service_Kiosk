@@ -18,5 +18,3 @@ Welcome to the **Self-Service Kiosk**, a dedicated ordering system designed **ex
 ## 🔗 Quick Access  
 💻 **Customer Kiosk:** [Click here](https://jonymarbravo.github.io/Self_Service_Kiosk/index.html)  
 🔑 **Admin Dashboard Login:** [Click here](https://jonymarbravo.github.io/Self_Service_Kiosk/admin/log_in.html)  
-
-## 📌 Project Structure  
